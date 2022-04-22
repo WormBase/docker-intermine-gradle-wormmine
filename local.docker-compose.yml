@@ -1,30 +1,30 @@
 version: "3"
 services:
-  intermine_builder:
-    container_name: intermine_builder
-    build:
-      context: ./intermine_builder
-      dockerfile: ./intermine_builder.Dockerfile
-    user: ${UID:-1000}:${GID:-1000}
-    volumes:
-      # - ./data/mine/data:/home/intermine/intermine/data
-      - ./data/mine/dump:/home/intermine/intermine/dump
-      - ./data/mine/configs:/home/intermine/intermine/configs
-      - ./data/mine/packages:/home/intermine/.m2
-      - ./data/mine/intermine:/home/intermine/.intermine
-      # - ./data/mine/[PUT_YOUR_MINE_NAME_HERE]:/home/intermine/intermine/[PUT_YOUR_MINE_NAME_HERE]
-      - ./data/mine/biotestmine:/home/intermine/intermine/biotestmine
-    environment:
-      - MINE_NAME=${MINE_NAME:-biotestmine}
-      - MINE_REPO_URL=${MINE_REPO_URL:-}
-      - IM_DATA_DIR=${IM_DATA_DIR:-DATA_DIR}
-      - MEM_OPTS=${MEM_OPTS:-"-Xmx2g -Xms1g"}
-      - IM_REPO_URL=${IM_REPO_URL:-}
-      - IM_REPO_BRANCH=${IM_REPO_BRANCH:-}
-    depends_on: 
-      - postgres
-      - solr
-      - tomcat
+#  intermine_builder:
+#    container_name: intermine_builder
+#    build:
+#      context: ./intermine_builder
+#      dockerfile: ./intermine_builder.Dockerfile
+#    user: ${UID:-1000}:${GID:-1000}
+#    volumes:
+#      # - ./data/mine/data:/home/intermine/intermine/data
+#      - ./data/mine/dump:/home/intermine/intermine/dump
+#      - ./data/mine/configs:/home/intermine/intermine/configs
+#      - ./data/mine/packages:/home/intermine/.m2
+#      - ./data/mine/intermine:/home/intermine/.intermine
+#      # - ./data/mine/[PUT_YOUR_MINE_NAME_HERE]:/home/intermine/intermine/[PUT_YOUR_MINE_NAME_HERE]
+#      - ./data/mine/biotestmine:/home/intermine/intermine/biotestmine
+#    environment:
+#      - MINE_NAME=${MINE_NAME:-biotestmine}
+#      - MINE_REPO_URL=${MINE_REPO_URL:-}
+#      - IM_DATA_DIR=${IM_DATA_DIR:-DATA_DIR}
+#      - MEM_OPTS=${MEM_OPTS:-"-Xmx2g -Xms1g"}
+#      - IM_REPO_URL=${IM_REPO_URL:-}
+#      - IM_REPO_BRANCH=${IM_REPO_BRANCH:-}
+#    depends_on: 
+#      - postgres
+#      - solr
+#      - tomcat
 
   postgres:
     container_name: intermine_postgres

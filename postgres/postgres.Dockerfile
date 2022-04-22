@@ -10,5 +10,8 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 EXPOSE 5432
 
 RUN chmod 777 /opt
+RUN chmod -R 777 /var/lib/
 
 CMD ["postgres", "-c", "config_file=/opt/postgresql.conf", "-p", "5432"]
+
+RUN chmod -R 777 /var/lib/postgresql/data
